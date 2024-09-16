@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 # 电池电量
 # 需要安装acpi或者upower
 

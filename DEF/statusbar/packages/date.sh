@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 # DATE 获取日期和时间的脚本
 
 tempfile=$(cd $(dirname $0);cd ..;pwd)/temp

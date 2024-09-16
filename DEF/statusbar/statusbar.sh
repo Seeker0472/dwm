@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 thisdir=$(cd $(dirname $0);pwd)
 tempfile=$thisdir/temp

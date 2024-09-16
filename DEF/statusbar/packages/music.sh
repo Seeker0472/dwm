@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 # music 脚本
 
 tempfile=$(cd $(dirname $0);cd ..;pwd)/temp

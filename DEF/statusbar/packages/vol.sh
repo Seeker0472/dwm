@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 # VOL 音量脚本
 # 本脚本需要你自行修改音量获取命令
 # 例如我使用的是 pipewire

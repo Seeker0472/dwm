@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 # MEM
 
 tempfile=$(cd $(dirname $0);cd ..;pwd)/temp
