@@ -46,9 +46,10 @@ static const unsigned int alphas[][3]    = {          /* 透明度设置 ColFg, 
 
 /* 自定义脚本位置 */
 //TODO!!!
-static const char *autostartscript = "/home/seeker/Develop/dwm/DEF/autostart.sh";
-// static const char *statusbarscript = "$DWM/statusbar/statusbar.sh";
-static const char *statusbarscript = "/home/seeker/Develop/dwm/DEF/statusbar/statusbar.sh";
+// static const char *autostartscript = "/home/seeker/Develop/dwm/DEF/autostart.sh";
+static const char *autostartscript = "$DWM/DEF/autostart.sh";
+static const char *statusbarscript = "$DWM/DEF/statusbar/statusbar.sh";
+// static const char *statusbarscript = "/home/seeker/Develop/dwm/DEF/statusbar/statusbar.sh";
 
 /* 自定义 scratchpad instance */
 static const char scratchpadname[] = "scratchpad";

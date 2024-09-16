@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 dwmdir=$(cd $(dirname $0); cd .. ;pwd)
 

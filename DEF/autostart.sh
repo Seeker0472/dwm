@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 # DWM自启动脚本 仅作参考 
 # 搭配 https://github.com/yaocccc/scripts 仓库使用 目录位置 ~/scripts
 # 部分配置文件在 ~/scripts/config 目录下
