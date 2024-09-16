@@ -18,7 +18,7 @@
             postPatch = (oldAttrs.postPatch or "") + ''
               cp -r DEF/* .
             '';
-            version = "master";
+            version = "develop";
             src = ./.;
           });
         };
