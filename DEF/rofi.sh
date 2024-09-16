@@ -13,13 +13,13 @@ execute_menu() {
             feh --randomize --bg-fill ~/Pictures/wallpaper/*.png
             ;;
         '艹 update statusbar')
-            coproc ($DWM/statusbar/statusbar.sh updateall > /dev/null 2>&1)
+            coproc (/home/seeker/Develop/dwm/statusbar/statusbar.sh updateall > /dev/null 2>&1)
             ;;
         ' open v2raya')
-            coproc (sudo docker restart v2raya > /dev/null && $DWM/statusbar/statusbar.sh updateall > /dev/null)
+            coproc (sudo docker restart v2raya > /dev/null && /home/seeker/Develop/dwm/statusbar/statusbar.sh updateall > /dev/null)
             ;;
         ' close v2raya')
-            coproc (sudo docker stop v2raya > /dev/null && $DWM/statusbar/statusbar.sh updateall > /dev/null)
+            coproc (sudo docker stop v2raya > /dev/null && /home/seeker/Develop/dwm/statusbar/statusbar.sh updateall > /dev/null)
             ;;
         ' open picom')
             coproc (picom --experimental-backends --config ~/scripts/config/picom.conf > /dev/null 2>&1)

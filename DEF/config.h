@@ -47,8 +47,8 @@ static const unsigned int alphas[][3]    = {          /* 透明度设置 ColFg, 
 /* 自定义脚本位置 */
 //TODO!!!
 // static const char *autostartscript = "/home/seeker/Develop/dwm/DEF/autostart.sh";
-static const char *autostartscript = "$DWM/DEF/autostart.sh";
-static const char *statusbarscript = "$DWM/DEF/statusbar/statusbar.sh";
+static const char *autostartscript = "/home/seeker/Develop/dwm/DEF/autostart.sh";
+static const char *statusbarscript = "/home/seeker/Develop/dwm/DEF/statusbar/statusbar.sh";
 // static const char *statusbarscript = "/home/seeker/Develop/dwm/DEF/statusbar/statusbar.sh";
 
 /* 自定义 scratchpad instance */
@@ -202,10 +202,10 @@ static Key keys[] = {
     { MODKEY,              XK_space,  spawn, SHCMD("st -c float") },                                            /* super space      | 打开浮动st终端         */
     { MODKEY,              XK_F1,     spawn, SHCMD("killall pcmanfm || pcmanfm") },                             /* super F1         | 打开/关闭pcmanfm       */
     { MODKEY,              XK_d,      spawn, SHCMD("rofi -show run") },                                         /* super d          | rofi: 执行run          */
-    { MODKEY,              XK_p,      spawn, SHCMD("$DWM/DEF/rofi.sh") },                                       /* super p          | rofi: 执行自定义脚本   */
-    { MODKEY,              XK_n,      spawn, SHCMD("$DWM/DEF/blurlock.sh") },                                   /* super n          | 锁定屏幕               */
-    { MODKEY|ShiftMask,    XK_Up,     spawn, SHCMD("$DWM/DEF/set_vol.sh up") },                                 /* super shift up   | 音量加                 */
-    { MODKEY|ShiftMask,    XK_Down,   spawn, SHCMD("$DWM/DEF/set_vol.sh down") },                               /* super shift down | 音量减                 */
+    { MODKEY,              XK_p,      spawn, SHCMD("/home/seeker/Develop/dwm/DEF/rofi.sh") },                                       /* super p          | rofi: 执行自定义脚本   */
+    { MODKEY,              XK_n,      spawn, SHCMD("/home/seeker/Develop/dwm/DEF/blurlock.sh") },                                   /* super n          | 锁定屏幕               */
+    { MODKEY|ShiftMask,    XK_Up,     spawn, SHCMD("/home/seeker/Develop/dwm/DEF/set_vol.sh up") },                                 /* super shift up   | 音量加                 */
+    { MODKEY|ShiftMask,    XK_Down,   spawn, SHCMD("/home/seeker/Develop/dwm/DEF/set_vol.sh down") },                               /* super shift down | 音量减                 */
     { MODKEY|ShiftMask,    XK_a,      spawn, SHCMD("flameshot gui -c -p ~/Pictures/screenshots") },             /* super shift a    | 截图                   */
     { MODKEY|ShiftMask,    XK_q,      spawn, SHCMD("kill -9 $(xprop | grep _NET_WM_PID | awk '{print $3}')") }, /* super shift q    | 选中某个窗口并强制kill */
 
