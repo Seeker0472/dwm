@@ -17,8 +17,8 @@ update() {
     men_usage_rate=$(((mem_total - mem_free - mem_buffers - mem_cached) * 100 / mem_total))
     mem_text=$(echo $men_usage_rate | awk '{printf "%02d%", $1}')
 
-    icon=" $mem_icon "
-    text=" $mem_text "
+    icon="$mem_icon "
+    text="$mem_text"
 
     sed -i '/^export '$this'=.*$/d' $tempfile
     printf "export %s='%s%s%s%s%s'\n" $this "$signal" "$icon_color" "$icon" "$text_color" "$text" >> $tempfile

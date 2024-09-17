@@ -25,8 +25,8 @@ update() {
     wifi_text=$(nmcli | grep "$wifi_grep_keyword" | awk -F "$wifi_grep_keyword" '{print $2}')
     [ "$wifi_text" = "" ] && wifi_text=$wifi_disconnected
 
-    icon=" $wifi_icon "
-    text="$wifi_text "
+    icon="$wifi_icon "
+    text="$wifi_text"
 
     sed -i '/^export '$this'=.*$/d' $tempfile
     printf "export %s='%s%s%s%s%s'\n" $this "$signal" "$icon_color" "$icon" "$text_color" "$text" >> $tempfile
