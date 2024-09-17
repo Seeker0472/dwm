@@ -197,10 +197,10 @@ static Key keys[] = {
 
     /* spawn + SHCMD 执行对应命令(已下部分建议完全自己重新定义) */
     { MODKEY,              XK_s,      togglescratch, SHCMD("st -t scratchpad -c float") },                      /* super s          | 打开scratch终端        */
-    { MODKEY|Mod1Mask,              NULL, spawn, SHCMD("anyrun") },                                                     /* super enter      | 打开st终端             */
+    { MODKEY,              XK_space, spawn, SHCMD("anyrun") },                                                     /* super enter      | 打开st终端             */
     { MODKEY,              XK_Return, spawn, SHCMD("kitty") },                                                     /* super enter      | 打开st终端             */
     { MODKEY,              XK_minus,  spawn, SHCMD("st -c FG") },                                               /* super +          | 打开全局st终端         */
-    { MODKEY,              XK_space,  spawn, SHCMD("st -c float") },                                            /* super space      | 打开浮动st终端         */
+    // { MODKEY,              XK_space,  spawn, SHCMD("st -c float") },                                            /* super space      | 打开浮动st终端         */
     { MODKEY,              XK_F1,     spawn, SHCMD("killall pcmanfm || pcmanfm") },                             /* super F1         | 打开/关闭pcmanfm       */
     { MODKEY,              XK_d,      spawn, SHCMD("rofi -show run") },                                         /* super d          | rofi: 执行run          */
     { MODKEY,              XK_p,      spawn, SHCMD("/home/seeker/Develop/dwm/DEF/rofi.sh") },                                       /* super p          | rofi: 执行自定义脚本   */
