@@ -31,7 +31,7 @@ update() {
     get_by_acpi
     [ -z $bat_text ] && bat_text=0
     if [ "$charging" ]; then
-        if   [ "$bat_text" -ge 95 ]; then bat_icon="";
+        if   [ "$bat_text" -ge 95 ]; then bat_icon="󰂅";
         elif [ "$bat_text" -ge 90 ]; then bat_icon="󰂋";
         elif [ "$bat_text" -ge 80 ]; then bat_icon="󰂊";
         elif [ "$bat_text" -ge 70 ]; then bat_icon="󰢞";
@@ -40,24 +40,24 @@ update() {
         elif [ "$bat_text" -ge 40 ]; then bat_icon="󰂈";
         elif [ "$bat_text" -ge 30 ]; then bat_icon="󰂇";
         elif [ "$bat_text" -ge 20 ]; then bat_icon="󰂆";
-        elif [ "$bat_text" -ge 10 ]; then bat_icon="󰢜";
+        elif [ "$bat_text" -ge 10 ]; then bat_icon="󰁺";
         else bat_icon="󰢟"; fi
     else
-        if   [ "$bat_text" -ge 95 ]; then bat_icon="";
-        elif [ "$bat_text" -ge 90 ]; then bat_icon="";
-        elif [ "$bat_text" -ge 80 ]; then bat_icon="";
-        elif [ "$bat_text" -ge 70 ]; then bat_icon="";
-        elif [ "$bat_text" -ge 60 ]; then bat_icon="";
-        elif [ "$bat_text" -ge 50 ]; then bat_icon="";
-        elif [ "$bat_text" -ge 40 ]; then bat_icon="";
-        elif [ "$bat_text" -ge 30 ]; then bat_icon="";
-        elif [ "$bat_text" -ge 20 ]; then bat_icon="";
-        elif [ "$bat_text" -ge 10 ]; then bat_icon="";
+        if   [ "$bat_text" -ge 95 ]; then bat_icon="󰁹";
+        elif [ "$bat_text" -ge 90 ]; then bat_icon="󰂂";
+        elif [ "$bat_text" -ge 80 ]; then bat_icon="󰂁";
+        elif [ "$bat_text" -ge 70 ]; then bat_icon="󰂀";
+        elif [ "$bat_text" -ge 60 ]; then bat_icon="󰁿";
+        elif [ "$bat_text" -ge 50 ]; then bat_icon="󰁾";
+        elif [ "$bat_text" -ge 40 ]; then bat_icon="󰁽";
+        elif [ "$bat_text" -ge 30 ]; then bat_icon="󰁼";
+        elif [ "$bat_text" -ge 20 ]; then bat_icon="󰁻";
+        elif [ "$bat_text" -ge 10 ]; then bat_icon="󰁺";
         else bat_icon=""; fi
     fi
 
-    icon=" $bat_icon "
-    text=" $bat_text% "
+    icon="$bat_icon "
+    text="$bat_text%"
 
     sed -i '/^export '$this'=.*$/d' $tempfile
     printf "export %s='%s%s%s%s%s'\n" $this "$signal" "$icon_color" "$icon" "$text_color" "$text" >> $tempfile
