@@ -198,7 +198,7 @@ static Key keys[] = {
 
     /* spawn + SHCMD 执行对应命令(已下部分建议完全自己重新定义) */
     { MODKEY,              XK_s,      togglescratch, SHCMD("st -t scratchpad -c float") },                      /* super s          | 打开scratch终端        */
-    { MODKEY,              XK_space, spawn, SHCMD("anyrun") },                                                     /* super enter      | 打开st终端             */
+    { MODKEY,              XK_space, spawn, SHCMD("anyrun") },                                                     /* super space      | 打开anyrun           */
     { MODKEY,              XK_Return, spawn, SHCMD("kitty") },                                                     /* super enter      | 打开st终端             */
     { MODKEY,              XK_minus,  spawn, SHCMD("st -c FG") },                                               /* super +          | 打开全局st终端         */
     // { MODKEY,              XK_space,  spawn, SHCMD("st -c float") },                                            /* super space      | 打开浮动st终端         */

@@ -20,6 +20,10 @@ if [ "$LANG" != "zh_CN.UTF-8" ]; then
     wifi_disconnected_notify="disconnected"
 fi
 
+wifi_rescan(){
+    nmcli device wifi rescan
+}
+
 update() {
     wifi_icon="󰖩"
     wifi_text=$(nmcli | grep "$wifi_grep_keyword" | awk -F "$wifi_grep_keyword" '{print $2}')
@@ -38,17 +42,19 @@ notify() {
 }
 
 call_nm() {
+    wifi_rescan
     pid1=`ps aux | grep 'st -t statusutil' | grep -v grep | awk '{print $2}'`
     pid2=`ps aux | grep 'st -t statusutil_nm' | grep -v grep | awk '{print $2}'`
     mx=`xdotool getmouselocation --shell | grep X= | sed 's/X=//'`
     my=`xdotool getmouselocation --shell | grep Y= | sed 's/Y=//'`
-    kill $pid1 && kill $pid2 || st -t statusutil_nm -g 60x25+$((mx - 240))+$((my + 20)) -c FGN -C "#222D31@4" -e 'nmtui-connect'
+    kill $pid1 && kill $pid2 || st -t statusutil_nm -f "Jetbrains Momo-10" -g 60x25+$((mx - 240))+$((my + 20)) -c FGN -e 'nmtui-connect'
+ 
 }
 
 click() {
     case "$1" in
         L) notify ;;
-        R) setsid call_nm ;;
+        R) call_nm ;;
     esac
 }
 

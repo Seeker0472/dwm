@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# ICONS 部分特殊的标记图标 这里是我自己用的，你用不上的话去掉就行
 
 tempfile=$(cd $(dirname $0);cd ..;pwd)/temp
 
@@ -12,9 +11,13 @@ with_v2raya() {
 }
 
 with_bluetooth() {
-    # 此处为自用蓝牙设备的 MAC 地址，你可以自定义该部分
+    # Bluetooth Mac
     [ ! "$(command -v bluetoothctl)" ] && echo command not found: bluetoothctl && return
     [ "$(bluetoothctl info E9:AA:D7:74:C2:32 | grep 'Connected: yes')" ] && icons=(${icons[@]} "󰦋")
+    [ "$(bluetoothctl info 0C:AE:BD:AF:94:55 | grep 'Connected: yes')" ] && icons=(${icons[@]} "󰥰")
+}
+try_connect(){
+    bluetoothctl connect 0C:AE:BD:AF:94:55
 }
 
 update() {
@@ -32,6 +35,8 @@ notify() {
     texts=""
     [ "$(ps aux | grep -v grep | grep 'v2raya')" ] && texts="$texts\n󱡻 v2raya 已启动"
     [ "$(bluetoothctl info E9:AA:D7:74:C2:32 | grep 'Connected: yes')" ] && texts="$texts\n󰦋 MX590 已链接"
+    [ "$(bluetoothctl info D3:06:D1:95:40:6C | grep 'Connected: yes')" ] && texts="$texts\n󰌌 VGN-3 已链接"
+    [ "$(bluetoothctl info 0C:AE:BD:AF:94:55 | grep 'Connected: yes')" ] && texts="$texts\n󰥰 W820NB 已链接"
     [ "$texts" != "" ] && notify-send "󱱨 Info" "$texts" -r 9527
 }
 
@@ -46,7 +51,7 @@ call_menu() {
 
 click() {
     case "$1" in
-        L) notify; feh --randomize --bg-fill ~/Pictures/wallpaper/*.png ;;
+        L) notify; feh --randomize --bg-fill ~/Pictures/wallpaper/*.png ; try_connect ;;
         R) call_menu ;;
     esac
 }
