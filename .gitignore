@@ -10,3 +10,4 @@ compile_commands.json
 .cache
 statusbar/temp
 DEF/statusbar/temp
+DEF/statusbar/conftemp
