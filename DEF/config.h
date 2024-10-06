@@ -212,9 +212,9 @@ static Key keys[] = {
     /* super key : 跳转到对应tag (可附加一条命令 若目标目录无窗口，则执行该命令) */
     /* super shift key : 将聚焦窗口移动到对应tag */
     /* key tag cmd */
-    TAGKEYS(XK_1, 0, "kitty")
-    TAGKEYS(XK_2, 1, "kitty")
-    TAGKEYS(XK_3, 2, "kitty")
+    TAGKEYS(XK_1, 0, "kitty tmux")
+    TAGKEYS(XK_2, 1, "kitty tmux")
+    TAGKEYS(XK_3, 2, "kitty tmux")
     TAGKEYS(XK_9, 3, "obs")
     TAGKEYS(XK_c, 4, "firefox")
     TAGKEYS(XK_m, 5, "~/scripts/music_player.sh")
