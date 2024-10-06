@@ -207,7 +207,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,    XK_Down,   spawn, SHCMD("/home/seeker/Develop/dwm/DEF/set_vol.sh down") },                               /* super shift down | 音量减                 */
     { MODKEY|ShiftMask,    XK_a,      spawn, SHCMD("flameshot gui -c -p ~/Pictures/screenshots") },             /* super shift a    | 截图                   */
     { MODKEY|ShiftMask,    XK_q,      spawn, SHCMD("kill -9 $(xprop | grep _NET_WM_PID | awk '{print $3}')") }, /* super shift q    | 选中某个窗口并强制kill */
-    { MODKEY          ,    XK_question,      spawn, SHCMD("/home/seeker/Develop/dwm/DEF/scripts/start_gpt.sh") }, /* super shift ？    | GPT */
+    { MODKEY          ,    XK_slash,      spawn, SHCMD("/home/seeker/Develop/dwm/DEF/scripts/start_gpt.sh") }, /* super shift ？    | GPT */
 
     /* super key : 跳转到对应tag (可附加一条命令 若目标目录无窗口，则执行该命令) */
     /* super shift key : 将聚焦窗口移动到对应tag */
