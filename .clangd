@@ -1,0 +1,6 @@
+# Fragment common to C and C++ source files
+CompileFlags:
+    Add:
+        - "-I/nix/store/5zhvq1c29xx8lid5gkd5ib7brs22gsb2-xorgproto-2024.1/include/"
+        - "-ferror-limit=0"
+    Compiler: gcc

@@ -1,4 +1,5 @@
 #include <X11/XF86keysym.h>
+#include <X11/keysymdef.h>
 
 static int showsystray                   = 1;         /* 是否显示托盘栏 */
 static const int newclientathead         = 0;         /* 定义新窗口在栈顶还是栈底 */
@@ -46,17 +47,14 @@ static const unsigned int alphas[][3]    = {          /* 透明度设置 ColFg, 
 
 /* 自定义脚本位置 */
 //TODO!!!
-// static const char *autostartscript = "/home/seeker/Develop/dwm/DEF/autostart.sh";
 static const char *autostartscript = "/home/seeker/Develop/dwm/DEF/autostart.sh";
 static const char *statusbarscript = "/home/seeker/Develop/dwm/DEF/statusbar/statusbar.sh";
-// static const char *statusbarscript = "/home/seeker/Develop/dwm/DEF/statusbar/statusbar.sh";
 
 /* 自定义 scratchpad instance */
 static const char scratchpadname[] = "scratchpad";
 
 /* 自定义tag名称 */
 /* 自定义特定实例的显示状态 */
-//            ﮸  ﭮ 切
 static const char *tags[] = { 
     "", // tag:0  key:1  desc:terminal1
     "󰆍", // tag:1  key:2  desc:terminal2
@@ -67,7 +65,6 @@ static const char *tags[] = {
     "ﬄ", // tag:7  key:0  desc:qq
     "﬐", // tag:8  key:w  desc:wechat
     "󰨞", // tag:9  key:v  desc:vscode
-//    "", // tag:9  key:l  desc:wxwork
 };
 
 /* 自定义窗口显示规则 */
@@ -86,7 +83,7 @@ static const Rule rules[] = {
     { NULL,                  NULL,                "图片查看",        0,            1,          0,          0,        -1,      0}, // 微信图片查看器      浮动
     { NULL,                  NULL,                "图片预览",        0,            1,          0,          0,        -1,      0}, // 企业微信图片查看器  浮动
     { NULL,                  NULL,                "Media viewer",    0,            1,          0,          0,        -1,      0}, // tg图片查看器        浮动
-    { NULL,                  NULL,                "anyrun",    0,            0,          1,          1,        -1,      0}, // tg图片查看器        浮动
+    { NULL,                  NULL,                "anyrun",         0,            1,          0,          0,        -1,      0}, // ANYRUN        浮动
 
     /** 普通优先度 */
     {"obs",                  NULL,                 NULL,             1 << 3,       0,          0,          0,        -1,      0}, // obs        tag -> 󰕧
@@ -210,6 +207,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,    XK_Down,   spawn, SHCMD("/home/seeker/Develop/dwm/DEF/set_vol.sh down") },                               /* super shift down | 音量减                 */
     { MODKEY|ShiftMask,    XK_a,      spawn, SHCMD("flameshot gui -c -p ~/Pictures/screenshots") },             /* super shift a    | 截图                   */
     { MODKEY|ShiftMask,    XK_q,      spawn, SHCMD("kill -9 $(xprop | grep _NET_WM_PID | awk '{print $3}')") }, /* super shift q    | 选中某个窗口并强制kill */
+    { MODKEY          ,    XK_question,      spawn, SHCMD("/home/seeker/Develop/dwm/DEF/scripts/start_gpt.sh") }, /* super shift ？    | GPT */
 
     /* super key : 跳转到对应tag (可附加一条命令 若目标目录无窗口，则执行该命令) */
     /* super shift key : 将聚焦窗口移动到对应tag */
@@ -240,13 +238,13 @@ static Button buttons[] = {
     { ClkTagBar,           0,               Button4,          viewtoleft,    {0} },                                   // 鼠标滚轮上  |  tag          |  向前切换tag
 	{ ClkTagBar,           0,               Button5,          viewtoright,   {0} },                                   // 鼠标滚轮下  |  tag          |  向后切换tag
     /* 点击状态栏操作 */
-    { ClkStatusText,       0,               Button1,          clickstatusbar,{0} },                                   // 左键        |  点击状态栏   |  根据状态栏的信号执行 ~/scripts/dwmstatusbar.sh $signal L
-    { ClkStatusText,       0,               Button2,          clickstatusbar,{0} },                                   // 中键        |  点击状态栏   |  根据状态栏的信号执行 ~/scripts/dwmstatusbar.sh $signal M
-    { ClkStatusText,       0,               Button3,          clickstatusbar,{0} },                                   // 右键        |  点击状态栏   |  根据状态栏的信号执行 ~/scripts/dwmstatusbar.sh $signal R
-    { ClkStatusText,       0,               Button4,          clickstatusbar,{0} },                                   // 鼠标滚轮上  |  状态栏       |  根据状态栏的信号执行 ~/scripts/dwmstatusbar.sh $signal U
-    { ClkStatusText,       0,               Button5,          clickstatusbar,{0} },                                   // 鼠标滚轮下  |  状态栏       |  根据状态栏的信号执行 ~/scripts/dwmstatusbar.sh $signal D
+    { ClkStatusText,       0,               Button1,          clickstatusbar,{0} },                                   // 左键        |  点击状态栏   |  根据状态栏的信号执行 statusbar.sh $signal L
+    { ClkStatusText,       0,               Button2,          clickstatusbar,{0} },                                   // 中键        |  点击状态栏   |  根据状态栏的信号执行 statusbar.sh $signal M
+    { ClkStatusText,       0,               Button3,          clickstatusbar,{0} },                                   // 右键        |  点击状态栏   |  根据状态栏的信号执行 statusbar.sh $signal R
+    { ClkStatusText,       0,               Button4,          clickstatusbar,{0} },                                   // 鼠标滚轮上  |  状态栏       |  根据状态栏的信号执行 statusbar.sh $signal U
+    { ClkStatusText,       0,               Button5,          clickstatusbar,{0} },                                   // 鼠标滚轮下  |  状态栏       |  根据状态栏的信号执行 statusbar.sh $signal D
                                                                                                                       //
-    /* 点击bar空白处 */
-    { ClkBarEmpty,         0,               Button1,          spawn, SHCMD("~/scripts/call_rofi.sh window") },        // 左键        |  bar空白处    |  rofi 执行 window
-    { ClkBarEmpty,         0,               Button3,          spawn, SHCMD("~/scripts/call_rofi.sh drun") },          // 右键        |  bar空白处    |  rofi 执行 drun
+    // /* 点击bar空白处 */TODO!!!
+    { ClkBarEmpty,         0,               Button1,          spawn, SHCMD("/home/seeker/Develop/dwm/DEF/scripts/call_rofi.sh window") },        // 左键        |  bar空白处    |  rofi 执行 window
+    { ClkBarEmpty,         0,               Button3,          spawn, SHCMD("/home/seeker/Develop/dwm/DEF/scripts/call_rofi.sh drun") },          // 右键        |  bar空白处    |  rofi 执行 drun
 };

@@ -48,7 +48,6 @@ call_nm() {
     mx=`xdotool getmouselocation --shell | grep X= | sed 's/X=//'`
     my=`xdotool getmouselocation --shell | grep Y= | sed 's/Y=//'`
     kill $pid1 && kill $pid2 || st -t statusutil_nm -f "Jetbrains Momo-10" -g 60x25+$((mx - 240))+$((my + 20)) -c FGN -e 'nmtui-connect'
- 
 }
 
 click() {
