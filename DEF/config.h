@@ -89,6 +89,7 @@ static const Rule rules[] = {
     { "pavucontrol",                  NULL,                "pavucontrol",         TAGMASK,      1,          1,          1,        -1,      0}, // ANYRUN        浮动
 
     /** 普通优先度 */
+    {"obsidian",                  NULL,                 NULL,             1 << 9,       0,          0,          0,        -1,      0}, // obsidian
     {"obs",                  NULL,                 NULL,             1 << 3,       0,          0,          0,        -1,      0}, // obs        tag -> 󰕧
     {"chrome",               NULL,                 NULL,             1 << 4,       0,          0,          0,        -1,      0}, // chrome     tag -> 
     {"Chromium",             NULL,                 NULL,             1 << 4,       0,          0,          0,        -1,      0}, // Chromium   tag -> 
