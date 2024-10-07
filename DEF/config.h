@@ -224,7 +224,7 @@ static Key keys[] = {
     TAGKEYS(XK_0, 6, "qq")
     TAGKEYS(XK_w, 7, "QT_SCALE_FACTOR=1.3 wechat-uos")
     TAGKEYS(XK_v, 8, "code")
-    TAGKEYS(XK_v, 9, "obsidian")
+    TAGKEYS(XK_8, 9, "obsidian")
 };
 
 static Button buttons[] = {
