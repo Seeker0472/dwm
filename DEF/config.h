@@ -55,16 +55,18 @@ static const char scratchpadname[] = "scratchpad";
 
 /* 自定义tag名称 */
 /* 自定义特定实例的显示状态 */
+//icons https://pictogrammers.com/library/mdi/
 static const char *tags[] = { 
     "", // tag:0  key:1  desc:terminal1
     "󰆍", // tag:1  key:2  desc:terminal2
     "󰞷", // tag:2  key:3  desc:terminal3
-    "󰕧", // tag:4  key:9  desc:obs
-    "", // tag:5  key:c  desc:chrome
-    "", // tag:6  key:m  desc:music
-    "ﬄ", // tag:7  key:0  desc:qq
-    "﬐", // tag:8  key:w  desc:wechat
-    "󰨞", // tag:9  key:v  desc:vscode
+    "󰕧", // tag:3  key:9  desc:obs
+    "", // tag:4  key:c  desc:chrome
+    "", // tag:5  key:m  desc:music
+    "ﬄ", // tag:6  key:0  desc:qq
+    "﬐", // tag:7  key:w  desc:wechat
+    "󰨞", // tag:8  key:v  desc:vscode
+    "󱓧", // tag:9  key:8  desc:obsidian
 };
 
 /* 自定义窗口显示规则 */
@@ -83,7 +85,8 @@ static const Rule rules[] = {
     { NULL,                  NULL,                "图片查看",        0,            1,          0,          0,        -1,      0}, // 微信图片查看器      浮动
     { NULL,                  NULL,                "图片预览",        0,            1,          0,          0,        -1,      0}, // 企业微信图片查看器  浮动
     { NULL,                  NULL,                "Media viewer",    0,            1,          0,          0,        -1,      0}, // tg图片查看器        浮动
-    { NULL,                  NULL,                "anyrun",         0,            1,          0,          0,        -1,      0}, // ANYRUN        浮动
+    { "anyrun",                  NULL,                "anyrun",         TAGMASK,      1,          1,          1,        -1,      0}, // ANYRUN        浮动
+    { "pavucontrol",                  NULL,                "pavucontrol",         TAGMASK,      1,          1,          1,        -1,      0}, // ANYRUN        浮动
 
     /** 普通优先度 */
     {"obs",                  NULL,                 NULL,             1 << 3,       0,          0,          0,        -1,      0}, // obs        tag -> 󰕧
@@ -221,6 +224,7 @@ static Key keys[] = {
     TAGKEYS(XK_0, 6, "qq")
     TAGKEYS(XK_w, 7, "QT_SCALE_FACTOR=1.3 wechat-uos")
     TAGKEYS(XK_v, 8, "code")
+    TAGKEYS(XK_v, 9, "obsidian")
 };
 
 static Button buttons[] = {
