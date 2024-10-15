@@ -13,8 +13,11 @@ signal=$(echo "^s$this^" | sed 's/_//')
 update() {
     music_text="$(mpc current)"
     icon=" 󰝚 "
-    if $music_text=~"\""; then
-        text=$(echo $music_text | sed -e "s/\"\\\\\"/g")
+    # if $music_text=~"\""; then
+    #     text=$(echo $music_text | sed -e "s/\"\\\\\"/g")
+    # else
+    if [[ $music_text == *\"* ]]; then
+    text=$(echo "$music_text" | sed 's/\"//g')
     else
         text=" $music_text "
     fi

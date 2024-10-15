@@ -63,8 +63,8 @@ static const char *tags[] = {
     "󰕧", // tag:3  key:9  desc:obs
     "", // tag:4  key:c  desc:chrome
     "", // tag:5  key:m  desc:music
-    "ﬄ", // tag:6  key:0  desc:qq
-    "﬐", // tag:7  key:w  desc:wechat
+    "󰘅", // tag:6  key:0  desc:qq
+    "󰘑", // tag:7  key:w  desc:wechat
     "󰨞", // tag:8  key:v  desc:vscode
     "󱓧", // tag:9  key:8  desc:obsidian
 };
@@ -90,8 +90,11 @@ static const Rule rules[] = {
 
     /** 普通优先度 */
     {"obsidian",                  NULL,                 NULL,             1 << 9,       0,          0,          0,        -1,      0}, // obsidian
+    {"code",                  NULL,                 NULL,             1 << 8,       0,          0,          0,        -1,      0}, // vscode
     {"obs",                  NULL,                 NULL,             1 << 3,       0,          0,          0,        -1,      0}, // obs        tag -> 󰕧
     {"chrome",               NULL,                 NULL,             1 << 4,       0,          0,          0,        -1,      0}, // chrome     tag -> 
+    {"firefox",               NULL,                 NULL,             1 << 4,       0,          0,          0,        -1,      0}, // chrome     tag -> 
+    {"edge",               NULL,                 NULL,             1 << 4,       0,          0,          0,        -1,      0}, // chrome     tag -> 
     {"Chromium",             NULL,                 NULL,             1 << 4,       0,          0,          0,        -1,      0}, // Chromium   tag -> 
     {"music",                NULL,                 NULL,             1 << 5,       1,          0,          1,        -1,      0}, // music      tag ->  浮动、无边框
     { NULL,                 "qq",                  NULL,             1 << 6,       0,          0,          1,        -1,      0}, // qq         tag -> ﬄ 无边框
@@ -204,7 +207,7 @@ static Key keys[] = {
     { MODKEY,              XK_minus,  spawn, SHCMD("st -c FG") },                                               /* super +          | 打开全局st终端         */
     // { MODKEY,              XK_space,  spawn, SHCMD("st -c float") },                                            /* super space      | 打开浮动st终端         */
     { MODKEY,              XK_F1,     spawn, SHCMD("killall pcmanfm || pcmanfm") },                             /* super F1         | 打开/关闭pcmanfm       */
-    { MODKEY,              XK_d,      spawn, SHCMD("rofi -show run") },                                         /* super d          | rofi: 执行run          */
+    { MODKEY,              XK_d,      spawn, SHCMD("rofi -show drun") },                                         /* super d          | rofi: 执行drun          */
     { MODKEY,              XK_p,      spawn, SHCMD("/home/seeker/Develop/dwm/DEF/rofi.sh") },                                       /* super p          | rofi: 执行自定义脚本   */
     { MODKEY,              XK_n,      spawn, SHCMD("/home/seeker/Develop/dwm/DEF/blurlock.sh") },                                   /* super n          | 锁定屏幕               */
     { MODKEY|ShiftMask,    XK_Up,     spawn, SHCMD("/home/seeker/Develop/dwm/DEF/set_vol.sh up") },                                 /* super shift up   | 音量加                 */

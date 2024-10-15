@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-tempfile=$(cd $(dirname $0);cd ..;pwd)/temp
+tempfile=$(
+    cd $(dirname $0)
+    cd ..
+    pwd
+)/temp
 
 this=_icons
 color="^c#2D1B46^^b#5555660x66^"
@@ -15,8 +19,9 @@ with_bluetooth() {
     [ ! "$(command -v bluetoothctl)" ] && echo command not found: bluetoothctl && return
     [ "$(bluetoothctl info E9:AA:D7:74:C2:32 | grep 'Connected: yes')" ] && icons=(${icons[@]} "󰦋")
     [ "$(bluetoothctl info 0C:AE:BD:AF:94:55 | grep 'Connected: yes')" ] && icons=(${icons[@]} "󰥰")
+    [ "$(docker ps | grep 'windows')" ] && icons=(${icons[@]} "󰖳")
 }
-try_connect(){
+try_connect() {
     bluetoothctl connect 0C:AE:BD:AF:94:55
 }
 
@@ -28,7 +33,7 @@ update() {
     text=" ${icons[@]} "
 
     sed -i '/^export '$this'=.*$/d' $tempfile
-    printf "export %s='%s%s%s'\n" $this "$signal" "$color" "$text" >> $tempfile
+    printf "export %s='%s%s%s'\n" $this "$signal" "$color" "$text" >>$tempfile
 }
 
 notify() {
@@ -42,22 +47,30 @@ notify() {
 
 call_menu() {
     case $(echo -e ' 关机\n 重启\n󰒲 休眠\n 锁定' | rofi -dmenu -window-title power) in
-        " 关机") poweroff ;;
-        " 重启") reboot ;;
-        "󰒲 休眠") systemctl hibernate ;;
-        " 锁定") $(cd $(dirname $0);cd ../../;pwd)/blurlock.sh ;;
+    " 关机") poweroff ;;
+    " 重启") reboot ;;
+    "󰒲 休眠") systemctl hibernate ;;
+    " 锁定") $(
+        cd $(dirname $0)
+        cd ../../
+        pwd
+    )/blurlock.sh ;;
     esac
 }
 
 click() {
     case "$1" in
-        L) notify; feh --randomize --bg-fill ~/Pictures/wallpaper/*.png ; try_connect ;;
-        R) call_menu ;;
+    L)
+        notify
+        feh --randomize --bg-fill ~/Pictures/wallpaper/*.png
+        try_connect
+        ;;
+    R) call_menu ;;
     esac
 }
 
 case "$1" in
-    click) click $2 ;;
-    notify) notify ;;
-    *) update ;;
+click) click $2 ;;
+notify) notify ;;
+*) update ;;
 esac
