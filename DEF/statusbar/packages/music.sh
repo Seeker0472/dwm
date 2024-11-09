@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # music 脚本
 
-tempfile=$(cd $(dirname $0);cd ..;pwd)/temp
+tempfile=/tmp/dwm_bar_temp
 
 this=_music
 icon_color="^c#3B102B^^b#6873790x88^"

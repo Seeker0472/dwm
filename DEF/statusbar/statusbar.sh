@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 thisdir=$(cd $(dirname $0);pwd)
-tempfile=$thisdir/temp
+tempfile=/tmp/dwm_bar_temp
 touch $tempfile
 
 # 设置某个模块的状态 update cpu mem ...

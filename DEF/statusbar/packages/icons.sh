@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 
-tempfile=$(
-    cd $(dirname $0)
-    cd ..
-    pwd
-)/temp
+tempfile=/tmp/dwm_bar_temp
 
 this=_icons
 color="^c#2D1B46^^b#5555660x66^"

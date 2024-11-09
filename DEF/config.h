@@ -1,5 +1,6 @@
 #include <X11/XF86keysym.h>
 #include <X11/keysymdef.h>
+#include <stdlib.h>
 
 static int showsystray                   = 1;         /* 是否显示托盘栏 */
 static const int newclientathead         = 0;         /* 定义新窗口在栈顶还是栈底 */
@@ -47,8 +48,8 @@ static const unsigned int alphas[][3]    = {          /* 透明度设置 ColFg, 
 
 /* 自定义脚本位置 */
 //TODO!!!
-static const char *autostartscript = "/home/seeker/Develop/dwm/DEF/autostart.sh";
-static const char *statusbarscript = "/home/seeker/Develop/dwm/DEF/statusbar/statusbar.sh";
+static const char *autostartscript = "$DWM_SCRIPTS_DIR/autostart.sh";
+static const char *statusbarscript = "$DWM_SCRIPTS_DIR/statusbar/statusbar.sh";
 
 /* 自定义 scratchpad instance */
 static const char scratchpadname[] = "scratchpad";
@@ -202,19 +203,19 @@ static Key keys[] = {
 
     /* spawn + SHCMD 执行对应命令(已下部分建议完全自己重新定义) */
     { MODKEY,              XK_s,      togglescratch, SHCMD("st -t scratchpad -c float") },                      /* super s          | 打开scratch终端        */
-    { MODKEY,              XK_space, spawn, SHCMD("anyrun") },                                                     /* super space      | 打开anyrun           */
+    { MODKEY,              XK_space, spawn, SHCMD("kitty --class FGN") },                                                     /* super space      | 打开anyrun           */
     { MODKEY,              XK_Return, spawn, SHCMD("kitty") },                                                     /* super enter      | 打开st终端             */
     { MODKEY,              XK_minus,  spawn, SHCMD("st -c FG") },                                               /* super +          | 打开全局st终端         */
     // { MODKEY,              XK_space,  spawn, SHCMD("st -c float") },                                            /* super space      | 打开浮动st终端         */
     { MODKEY,              XK_F1,     spawn, SHCMD("killall pcmanfm || pcmanfm") },                             /* super F1         | 打开/关闭pcmanfm       */
     { MODKEY,              XK_d,      spawn, SHCMD("rofi -show drun") },                                         /* super d          | rofi: 执行drun          */
-    { MODKEY,              XK_p,      spawn, SHCMD("/home/seeker/Develop/dwm/DEF/rofi.sh") },                                       /* super p          | rofi: 执行自定义脚本   */
-    { MODKEY,              XK_n,      spawn, SHCMD("/home/seeker/Develop/dwm/DEF/blurlock.sh") },                                   /* super n          | 锁定屏幕               */
-    { MODKEY|ShiftMask,    XK_Up,     spawn, SHCMD("/home/seeker/Develop/dwm/DEF/set_vol.sh up") },                                 /* super shift up   | 音量加                 */
-    { MODKEY|ShiftMask,    XK_Down,   spawn, SHCMD("/home/seeker/Develop/dwm/DEF/set_vol.sh down") },                               /* super shift down | 音量减                 */
+    { MODKEY,              XK_p,      spawn, SHCMD("$DWM_SCRIPTS_DIR/rofi.sh") },                                       /* super p          | rofi: 执行自定义脚本   */
+    { MODKEY,              XK_n,      spawn, SHCMD("$DWM_SCRIPTS_DIR/blurlock.sh") },                                   /* super n          | 锁定屏幕               */
+    { MODKEY|ShiftMask,    XK_Up,     spawn, SHCMD("$DWM_SCRIPTS_DIR/set_vol.sh up") },                                 /* super shift up   | 音量加                 */
+    { MODKEY|ShiftMask,    XK_Down,   spawn, SHCMD("$DWM_SCRIPTS_DIR/set_vol.sh down") },                               /* super shift down | 音量减                 */
     { MODKEY|ShiftMask,    XK_a,      spawn, SHCMD("flameshot gui -c -p ~/Pictures/screenshots") },             /* super shift a    | 截图                   */
     { MODKEY|ShiftMask,    XK_q,      spawn, SHCMD("kill -9 $(xprop | grep _NET_WM_PID | awk '{print $3}')") }, /* super shift q    | 选中某个窗口并强制kill */
-    { MODKEY          ,    XK_slash,      spawn, SHCMD("/home/seeker/Develop/dwm/DEF/scripts/start_gpt.sh") }, /* super shift ？    | GPT */
+    { MODKEY          ,    XK_slash,      spawn, SHCMD("$DWM_SCRIPTS_DIR/scripts/start_gpt.sh") }, /* super shift ？    | GPT */
 
     /* super key : 跳转到对应tag (可附加一条命令 若目标目录无窗口，则执行该命令) */
     /* super shift key : 将聚焦窗口移动到对应tag */
@@ -253,6 +254,6 @@ static Button buttons[] = {
     { ClkStatusText,       0,               Button5,          clickstatusbar,{0} },                                   // 鼠标滚轮下  |  状态栏       |  根据状态栏的信号执行 statusbar.sh $signal D
                                                                                                                       //
     // /* 点击bar空白处 */TODO!!!
-    { ClkBarEmpty,         0,               Button1,          spawn, SHCMD("/home/seeker/Develop/dwm/DEF/scripts/call_rofi.sh window") },        // 左键        |  bar空白处    |  rofi 执行 window
-    { ClkBarEmpty,         0,               Button3,          spawn, SHCMD("/home/seeker/Develop/dwm/DEF/scripts/call_rofi.sh drun") },          // 右键        |  bar空白处    |  rofi 执行 drun
+    { ClkBarEmpty,         0,               Button1,          spawn, SHCMD("$DWM_SCRIPTS_DIR/scripts/call_rofi.sh window") },        // 左键        |  bar空白处    |  rofi 执行 window
+    { ClkBarEmpty,         0,               Button3,          spawn, SHCMD("$DWM_SCRIPTS_DIR/scripts/call_rofi.sh drun") },          // 右键        |  bar空白处    |  rofi 执行 drun
 };

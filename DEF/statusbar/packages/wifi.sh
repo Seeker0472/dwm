@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-tempfile=$(cd $(dirname $0);cd ..;pwd)/temp
+tempfile=/tmp/dwm_bar_temp
 
 this=_wifi
 icon_color="^c#000080^^b#3870560x88^"

@@ -29,10 +29,10 @@ execute_menu() {
         docker stop 5880dec702c4
         ;;
     ' open picom')
-        coproc (picom --experimental-backends --config ~/scripts/config/picom.conf >/dev/null 2>&1)
+        coproc (picom --experimental-backends --config $DWM_SCRIPTS_DIR/conf/picom.conf >/dev/null 2>&1)
         ;;
     ' close picom')
-        killall picom
+        pkill -f picom
         ;;
     esac
 }

@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-tempfile=$(cd $(dirname $0);cd ..;pwd)/temp
-configfile=$(cd $(dirname $0);cd ..;pwd)/conftemp
+tempfile=/tmp/dwm_bar_temp
+configfile=/tmp/dwm_config_temp
+touch $configfile
 this=_brightness
 signal=$(echo "^s$this^" | sed 's/_//')
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # DATE 获取日期和时间的脚本
 
-tempfile=$(cd $(dirname $0);cd ..;pwd)/temp
+tempfile=/tmp/dwm_bar_temp
 
 this=_date
 icon_color="^c#4B005B^^b#7E51680x88^"

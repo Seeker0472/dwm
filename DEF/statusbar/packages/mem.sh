@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # MEM
 
-tempfile=$(cd $(dirname $0);cd ..;pwd)/temp
+tempfile=/tmp/dwm_bar_temp
 
 this=_mem
 icon_color="^c#3B001B^^b#6873790x88^"
