@@ -1,5 +1,4 @@
 BasedOnStyle: Google
-IndentWidth: 4
 AlignConsecutiveAssignments: true
 AlignConsecutiveDeclarations: true
 AlignConsecutiveMacros: true
@@ -25,3 +24,5 @@ SpacesInContainerLiterals: false
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
 UseTab: Never
+IndentWidth: 1
+TabWidth: 1
