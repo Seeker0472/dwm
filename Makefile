@@ -10,9 +10,9 @@ all: check options dwm
 
 check:
 	@ [ -f "config.h" ] || echo -e "\033[31mconfig.h not found, please run 'cp DEF/config.h .'\033[0m"
-	@ [ -f "autostart.sh" ] || echo -e "\033[31mautostart.sh not found, please run 'cp DEF/autostart.sh .'\033[0m"
-	@ [ -d "statusbar" ] || echo -e "\033[31mstatusbar/ not found, please run 'cp -r DEF/statusbar .'\033[0m"
-	@ ([ -f "config.h" ] && [ -f "autostart.sh" ] && [ -d "statusbar" ]) || exit 1
+	# @ [ -f "autostart.sh" ] || echo -e "\033[31mautostart.sh not found, please run 'cp DEF/autostart.sh .'\033[0m"
+	# @ [ -d "statusbar" ] || echo -e "\033[31mstatusbar/ not found, please run 'cp -r DEF/statusbar .'\033[0m"
+	@ ([ -f "config.h" ] ) || exit 0
 
 options:
 	@echo dwm build options:
