@@ -17,7 +17,7 @@
           dwm = prev.dwm.overrideAttrs (oldAttrs: rec {
             nativeBuildInputs =(oldAttrs.nativeBuildInputs or []) ++ [ prev.makeWrapper ];
             postPatch = (oldAttrs.postPatch or "") + ''
-              cp -r DEF/* .
+              # cp -r DEF/* .
             '';
             version = "develop";
             src = ./.;
@@ -26,7 +26,7 @@
             postInstall = (oldAttrs.installPhase or "") + ''
               wrapProgram $out/bin/dwm --set DWM_SCRIPTS_DIR "$out/bin/scripts"
               mkdir -p $out/bin/scripts
-              cp -r DEF/* $out/bin/scripts
+              cp -r scripts/* $out/bin/scripts
             '';
           });
         };
