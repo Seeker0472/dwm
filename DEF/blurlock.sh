@@ -17,10 +17,12 @@ i3lock \
     --force-clock \
     --time-pos x+5:y+h-80 xdotool\
     --time-color ffffffff \
-    --date-pos tx:ty+15 \
+    --time-size 110 \
+    --date-pos tx:ty+40 \
     --date-color ffffffff \
     --date-align 1 \
     --time-align 1 \
+    --date-size 30 \
     --ringver-color ffffff00 \
     --ringwrong-color ffffff88 \
     --status-pos x+5:y+h-16 \
