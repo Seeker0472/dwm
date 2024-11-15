@@ -16,9 +16,9 @@
         final: prev: {
           dwm = prev.dwm.overrideAttrs (oldAttrs: rec {
             nativeBuildInputs =(oldAttrs.nativeBuildInputs or []) ++ [ prev.makeWrapper ];
-            postPatch = (oldAttrs.postPatch or "") + ''
-              # cp -r DEF/* .
-            '';
+            # postPatch = (oldAttrs.postPatch or "") + ''
+            #   # cp -r DEF/* .
+            # '';
             version = "develop";
             src = ./.;
             # installPhase = ''

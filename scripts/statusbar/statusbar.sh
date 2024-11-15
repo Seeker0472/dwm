@@ -6,9 +6,20 @@ touch $tempfile
 
 # 设置某个模块的状态 update cpu mem ...
 update() {
-    [ ! "$1" ] && refresh && return                                      # 当指定模块为空时 结束
-    bash $thisdir/packages/$1.sh                                         # 执行指定模块脚本
-    shift 1; update $*                                                   # 递归调用
+    # [ ! "$1" ] && refresh && return                                      # 当指定模块为空时 结束
+    # bash $thisdir/packages/$1.sh                                         # 执行指定模块脚本
+    # shift 1; update $*                                                   # 递归调用
+    if [ -z "$1" ]; then
+        refresh
+        return
+    fi
+
+    while [ "$1" ]; do
+        if [ -n "$1" ]; then
+            bash "$thisdir/packages/$1.sh"
+        fi
+        shift
+    done
 }
 
 # 处理状态栏点击
