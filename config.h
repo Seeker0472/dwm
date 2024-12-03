@@ -10,7 +10,7 @@ static int                showsystray        = 1;    /* 是否显示托盘栏 */
 static const int          newclientathead    = 0;    /* 定义新窗口在栈顶还是栈底 */
 static const int          managetransientwin = 1;    /* 是否管理临时窗口 */
 static const unsigned int borderpx           = 2;    /* 窗口边框大小 */
-static const unsigned int systraypinning     = 0;    /* 托盘跟随的显示器 0代表不指定显示器 */
+static const unsigned int systraypinning     = 1;    /* 托盘跟随的显示器 0代表不指定显示器 */
 static const unsigned int systrayspacing     = 1;    /* 托盘间距 */
 static const unsigned int systrayspadding    = 5;    /* 托盘和状态栏的间隙 */
 static int                gappi              = 12;   /* 窗口与窗口 缝隙大小 */
@@ -94,10 +94,9 @@ static const Rule rules[] = {
     /** 优先级高 越在上面优先度越高 */
     {NULL, NULL, "保存文件", 0, 1, 0, 0, -1, 0},                    // 浏览器保存文件      浮动
     {NULL, NULL, "图片查看器", 0, 1, 0, 0, -1, 0},                  // qq图片查看器        浮动
-    {NULL, NULL, "图片查看", 0, 1, 0, 0, -1, 0},                    // 微信图片查看器      浮动
+    {NULL, NULL, "预览", 0, 1, 0, 0, -1, 0},                       // 微信图片查看器      浮动
     {NULL, NULL, "图片预览", 0, 1, 0, 0, -1, 0},                    // 企业微信图片查看器  浮动
     {NULL, NULL, "Media viewer", 0, 1, 0, 0, -1, 0},                // tg图片查看器        浮动
-    {"anyrun", NULL, "anyrun", TAGMASK, 1, 1, 1, -1, 0},            // ANYRUN        浮动
     {"pavucontrol", NULL, "pavucontrol", TAGMASK, 1, 1, 1, -1, 0},  // ANYRUN        浮动
 
     /** 普通优先度 */
