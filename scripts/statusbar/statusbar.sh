@@ -5,7 +5,7 @@ tempfile=/tmp/dwm_bar_temp
 touch $tempfile
 
 # 设置某个模块的状态 update cpu mem ...
-update() {
+update() { 
     # [ ! "$1" ] && refresh && return                                      # 当指定模块为空时 结束
     # bash $thisdir/packages/$1.sh                                         # 执行指定模块脚本
     # shift 1; update $*                                                   # 递归调用
@@ -15,6 +15,7 @@ update() {
     fi
 
     while [ "$1" ]; do
+        # echo Up:$1
         if [ -n "$1" ]; then
             bash "$thisdir/packages/$1.sh"
         fi
@@ -26,6 +27,7 @@ update() {
 click() {
     [ ! "$1" ] && return                                                 # 未传递参数时 结束
     bash $thisdir/packages/$1.sh click $2                                # 执行指定模块脚本
+    refresh
     update $1                                                            # 更新指定模块
     refresh                                                              # 刷新状态栏
 }
@@ -50,6 +52,7 @@ cron() {
         [ $((i % 5)) -eq 0 ]   && to=(${to[@]} date music)                  # 每 5秒   更新 date
         [ $i -lt 30 ] && to=(wifi cpu mem date vol icons bat brightness)    # 前 30秒  更新所有模块
         update ${to[@]}                                                     # 将需要更新的模块传递给 update
+        refresh
         sleep 5; let i+=5
     done &
 }

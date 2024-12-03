@@ -36,6 +36,16 @@ get_lock_status(){
     brightness_hardware=$_brightness_hardware
 }
 
+get_ext_brightness(){
+    result_ddc=$(ddcutil getvcp 10)
+    if [ $? -eq 0 ]; then
+        result_ddc=$(echo result_ddc| awk -F'current value = ' '{print $2}' | awk '{print $1}'| sed 's/,//g')
+    else
+        result_ddc=0
+    fi
+    Brightness_extern=$result_ddc
+}
+
 # 获取当前的各个参数(Slow)
 get_current_status(){
     #Wait Unlock
@@ -49,7 +59,8 @@ get_current_status(){
     done
     # get data except brightness of Ext display
     get_last_status
-    Brightness_extern=$(ddcutil getvcp 10| awk -F'current value = ' '{print $2}' | awk '{print $1}'| sed 's/,//g')
+    # Brightness_extern=$(ddcutil getvcp 10| awk -F'current value = ' '{print $2}' | awk '{print $1}'| sed 's/,//g')
+    get_ext_brightness
 }
 # get data (Ext display from tempfile)
 get_last_status() {
@@ -82,7 +93,8 @@ update_last_status() {
             fi
         done
         #get Ext brightness
-        Brightness_extern=$(ddcutil getvcp 10| awk -F'current value = ' '{print $2}' | awk '{print $1}'| sed 's/,//g')
+        # Brightness_extern=$(ddcutil getvcp 10| awk -F'current value = ' '{print $2}' | awk '{print $1}'| sed 's/,//g')
+        get_ext_brightness
     else
         Brightness_extern=$1
     fi
