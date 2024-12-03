@@ -18,13 +18,13 @@ get_by_acpi() {
     [ "$_time" = "可用时间: " ] && _time=""
 }
 
-get_by_upower() {
-    [ ! "$(command -v upower)" ] && echo command not found: upower && return
-    bat=$(upower -e | grep BAT)
-    bat_text=$(upower -i $bat | awk '/percentage/ {print $2}' | grep -Eo '[0-9]+')
-    [ "$(upower -i $bat | grep -w charging)" ] && charging="true"
-    [ "$(upower -i $bat | grep 'state:.*fully-charged')" ] && charging=""
-}
+# get_by_upower() {
+#     [ ! "$(command -v upower)" ] && echo command not found: upower && return
+#     bat=$(upower -e | grep BAT)
+#     bat_text=$(upower -i $bat | awk '/percentage/ {print $2}' | grep -Eo '[0-9]+')
+#     [ "$(upower -i $bat | grep -w charging)" ] && charging="true"
+#     [ "$(upower -i $bat | grep 'state:.*fully-charged')" ] && charging=""
+# }
 
 update() {
     # get_by_upower
