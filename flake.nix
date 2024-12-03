@@ -15,7 +15,7 @@
       overlay =
         final: prev: {
           dwm = prev.dwm.overrideAttrs (oldAttrs: rec {
-            nativeBuildInputs =(oldAttrs.nativeBuildInputs or []) ++ [ prev.makeWrapper ];
+            nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [ prev.makeWrapper prev.bear ];
             # postPatch = (oldAttrs.postPatch or "") + ''
             #   # cp -r DEF/* .
             # '';
@@ -27,6 +27,8 @@
               wrapProgram $out/bin/dwm --set DWM_SCRIPTS_DIR "$out/bin/scripts"
               mkdir -p $out/bin/scripts
               cp -r scripts/* $out/bin/scripts
+              cp compile_commands.json ${toString src}
+              cp ${toString src}
             '';
           });
         };
@@ -41,12 +43,25 @@
               self.overlays.default
             ];
           };
+          build_input=with pkgs; [ 
+              clang-tools
+              xorg.libX11 
+              xorg.libXft 
+              xorg.libXinerama 
+              xorg.libxcb 
+              xorg.libxcb 
+              gcc 
+              bear 
+              pkgs.stdenv.cc.cc
+            ];
         in
         rec {
           packages.dwm = pkgs.dwm;
           packages.default = pkgs.dwm;
           devShells.default = pkgs.mkShell {
-            buildInputs = with pkgs; [ xorg.libX11 xorg.libXft xorg.libXinerama gcc ];
+            LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${pkgs.xorg.libxcb}/lib";
+            buildInputs = build_input;
+            CPATH = pkgs.lib.makeSearchPathOutput "dev" "include" build_input;
           };
         }
       )

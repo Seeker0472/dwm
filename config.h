@@ -1,6 +1,9 @@
 #include <X11/XF86keysym.h>
 #include <X11/keysymdef.h>
 #include <stdlib.h>
+#include "micro.h"
+
+
 
 static int                showsystray        = 1;    /* 是否显示托盘栏 */
 static const int          newclientathead    = 0;    /* 定义新窗口在栈顶还是栈底 */

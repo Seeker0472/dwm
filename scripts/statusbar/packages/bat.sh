@@ -27,7 +27,7 @@ get_by_upower() {
 }
 
 update() {
-    get_by_upower
+    # get_by_upower
     get_by_acpi
     [ -z $bat_text ] && bat_text=0
     if [ "$charging" ]; then

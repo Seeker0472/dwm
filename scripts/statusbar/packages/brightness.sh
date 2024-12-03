@@ -106,7 +106,7 @@ update_bar(){
     icon="󰃟 "
     text=$Brightness_laptop
     #Have Ext Brightness??TODO!!!
-    if [ $Brightness_extern != 0 ]; then
+    if [ -n "$Brightness_extern" ] && [ $Brightness_extern != 0 ]; then
         icon="󰳲 "
         text=$(echo "$Brightness_extern" | tr -d '\n')
     fi
