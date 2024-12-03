@@ -1,6 +1,7 @@
 #include <X11/XF86keysym.h>
 #include <X11/keysymdef.h>
 #include <stdlib.h>
+#include "X11/X.h"
 #include "micro.h"
 
 
@@ -231,6 +232,7 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_a, spawn, SHCMD("flameshot gui -c -p ~/Pictures/screenshots")},             /* super shift a    | 截图                   */
     {MODKEY | ShiftMask, XK_q, spawn, SHCMD("kill -9 $(xprop | grep _NET_WM_PID | awk '{print $3}')")}, /* super shift q    | 选中某个窗口并强制kill */
     {MODKEY, XK_slash, spawn, SHCMD("$DWM_SCRIPTS_DIR/scripts/start_gpt.sh")},                          /* super shift ？    | GPT */
+    {MODKEY | ShiftMask, XK_p, spawn, SHCMD("bash $DWM_SCRIPTS_DIR/statusbar/packages/icons.sh click R")},                          /* super shift ？    | GPT */
 
     /* super key : 跳转到对应tag (可附加一条命令 若目标目录无窗口，则执行该命令) */
     /* super shift key : 将聚焦窗口移动到对应tag */
