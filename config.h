@@ -94,10 +94,9 @@ static const Rule rules[] = {
     /** 优先级高 越在上面优先度越高 */
     {NULL, NULL, "保存文件", 0, 1, 0, 0, -1, 0},                    // 浏览器保存文件      浮动
     {NULL, NULL, "图片查看器", 0, 1, 0, 0, -1, 0},                  // qq图片查看器        浮动
-    {NULL, NULL, "图片查看", 0, 1, 0, 0, -1, 0},                    // 微信图片查看器      浮动
+    {NULL, NULL, "预览", 0, 1, 0, 0, -1, 0},                       // 微信图片查看器      浮动
     {NULL, NULL, "图片预览", 0, 1, 0, 0, -1, 0},                    // 企业微信图片查看器  浮动
     {NULL, NULL, "Media viewer", 0, 1, 0, 0, -1, 0},                // tg图片查看器        浮动
-    {"anyrun", NULL, "anyrun", TAGMASK, 1, 1, 1, -1, 0},            // ANYRUN        浮动
     {"pavucontrol", NULL, "pavucontrol", TAGMASK, 1, 1, 1, -1, 0},  // ANYRUN        浮动
 
     /** 普通优先度 */
