@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+set +e
 thisdir=$(cd $(dirname $0);pwd)
 tempfile=/tmp/dwm_bar_temp
 touch $tempfile
