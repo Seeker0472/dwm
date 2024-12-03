@@ -27,8 +27,6 @@
               wrapProgram $out/bin/dwm --set DWM_SCRIPTS_DIR "$out/bin/scripts"
               mkdir -p $out/bin/scripts
               cp -r scripts/* $out/bin/scripts
-              cp compile_commands.json ${toString src}
-              cp ${toString src}
             '';
           });
         };
