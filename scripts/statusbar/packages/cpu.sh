@@ -5,7 +5,8 @@ tempfile=/tmp/dwm_bar_temp
 
 this=_cpu
 icon_color="^c#3E206F^^b#6E51760x88^"
-text_color="^c#3E206F^^b#6E51760x99^"
+# text_color="^c#3E206F^^b#6E51760x99^"
+text_color=$icon_color
 signal=$(echo "^s$this^" | sed 's/_//')
 
 with_temp() {

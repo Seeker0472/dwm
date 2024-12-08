@@ -10,7 +10,8 @@ current_screen=""
 brightness_hardware=true
 # TODO
 icon_color="^c#3B001B^^b#4865660x88^"
-text_color="^c#3B001B^^b#4865660x99^"
+# text_color="^c#3B001B^^b#4865660x99^"
+text_color=$icon_color
 declare -A Cur_Brightness_x
 Brightness_laptop=0
 Brightness_extern=0

@@ -4,7 +4,8 @@ tempfile=/tmp/dwm_bar_temp
 
 this=_wifi
 icon_color="^c#000080^^b#3870560x88^"
-text_color="^c#000080^^b#3870560x99^"
+# text_color="^c#000080^^b#3870560x99^"
+text_color=$icon_color
 signal=$(echo "^s$this^" | sed 's/_//')
 
 # check

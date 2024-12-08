@@ -18,7 +18,8 @@ tempfile=/tmp/dwm_bar_temp
 
 this=_vol
 icon_color="^c#442266^^b#7879560x88^"
-text_color="^c#442266^^b#7879560x99^"
+# text_color="^c#442266^^b#7879560x99^"
+text_color=$icon_color
 signal=$(echo "^s$this^" | sed 's/_//')
 
 # check

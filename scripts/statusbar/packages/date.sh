@@ -5,7 +5,8 @@ tempfile=/tmp/dwm_bar_temp
 
 this=_date
 icon_color="^c#4B005B^^b#7E51680x88^"
-text_color="^c#4B005B^^b#7E51680x99^"
+# text_color="^c#4B005B^^b#7E51680x99^"
+text_color=$icon_color
 signal=$(echo "^s$this^" | sed 's/_//')
 
 update() {

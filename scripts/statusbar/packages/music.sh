@@ -5,7 +5,8 @@ tempfile=/tmp/dwm_bar_temp
 
 this=_music
 icon_color="^c#3B102B^^b#6873790x88^"
-text_color="^c#3B102B^^b#6873790x99^"
+# text_color="^c#3B102B^^b#6873790x99^"
+text_color=$icon_color
 signal=$(echo "^s$this^" | sed 's/_//')
 
 # [ ! "$(command -v mpc)" ] && echo command not found: mpc && return

@@ -6,7 +6,8 @@ tempfile=/tmp/dwm_bar_temp
 
 this=_bat
 icon_color="^c#3B001B^^b#4865660x88^"
-text_color="^c#3B001B^^b#4865660x99^"
+# text_color="^c#3B001B^^b#4865660x99^"
+text_color=$icon_color
 signal=$(echo "^s$this^" | sed 's/_//')
 
 get_by_acpi() {
